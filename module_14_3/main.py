@@ -24,21 +24,36 @@ class UserState(StatesGroup):
 
 @dp.message_handler(commands=['start'])
 async def start_message(message):
-    await message.answer(f"Добро пожаловать, {message.from_user.username}. "+text.message_about, reply_markup=start_kb)
+    await message.answer(f"Добро пожаловать, {message.from_user.username}!", reply_markup=start_kb)
 
 
-@dp.message_handler(text="Купить")
-async def add_menu(message):
+@dp.message_handler(text="Рассчитать")
+async def calculation(message):
+    await message.answer("Выбирите, что хотели бы сделать:", reply_markup=main_menu)
+
+@dp.message_handler(text="Информация")
+async def info(message):
+    await message.answer(text.message_about, reply_markup=start_kb)
+
+@dp.message_handler(text='Назад')
+async def to_back(message):
+    await message.answer(text.message_about, reply_markup=start_kb)
+
+
+@dp.message_handler(text='Купить')
+async def get_buying_list(message):
     i = 1
     for image in os.listdir('products'):
+        await message.answer(f"Название: Товар {i} | Описание: описание {i} | Цена: {i * 100}")
         with open("products/"+image, "rb") as img:
-            await message.answer_photo(img,f"Название: Товар {i} | Описание: описание {i} | Цена: {i*100}" )
+            await message.answer_photo(photo=img)
         i+=1
     await message.answer(text.message_choosing, reply_markup=kb_product)
 
 @dp.message_handler(text="Формула расчёта")
 async def get_formulas(message):
-    await message.answer(text.formula_info, reply_markup=start_kb)
+    await message.answer(text.formula_info, reply_markup=main_menu)
+
 
 @dp.message_handler(text="Рассчитать норму калорий")
 async def set_age(message):
