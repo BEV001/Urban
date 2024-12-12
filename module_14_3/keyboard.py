@@ -21,10 +21,10 @@ main_menu = ReplyKeyboardMarkup(
 
 kb_product = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text='Товар 1', callback_data='product_buying')],
-        [InlineKeyboardButton(text='Товар 2', callback_data='product_buying')],
-        [InlineKeyboardButton(text='Товар 3', callback_data='product_buying')],
-        [InlineKeyboardButton(text='Товар 4', callback_data='product_buying')]
+        [InlineKeyboardButton(text='Товар 1', callback_data='product_buying'),
+         InlineKeyboardButton(text='Товар 2', callback_data='product_buying'),
+         InlineKeyboardButton(text='Товар 3', callback_data='product_buying'),
+         InlineKeyboardButton(text='Товар 4', callback_data='product_buying')]
     ],
     resize_keyboard=True
 )
