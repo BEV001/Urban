@@ -63,9 +63,14 @@ async def set_age(message):
 
 @dp.message_handler(state=UserState.age)
 async def set_growth(message, state):
-    if message.text == 'Назад' or message.text == 'Формула расчета':
+    if message.text == 'Назад':
         await message.answer("Возвращаемся в главное меню.",
                              reply_markup=start_kb)
+        await state.finish()
+        return
+    if message.text == 'Формула расчёта':
+        await message.answer(text.formula_info,
+                             reply_markup=main_menu)
         await state.finish()
         return
 
@@ -84,9 +89,14 @@ async def set_growth(message, state):
 
 @dp.message_handler(state=UserState.growth)
 async def set_weight(message, state):
-    if message.text == 'Назад' or message.text == 'Формула расчета':
+    if message.text == 'Назад':
         await message.answer("Возвращаемся в главное меню.",
                              reply_markup=start_kb)
+        await state.finish()
+        return
+    if message.text == 'Формула расчёта':
+        await message.answer(text.formula_info,
+                             reply_markup=main_menu)
         await state.finish()
         return
     try:
@@ -103,9 +113,14 @@ async def set_weight(message, state):
 
 @dp.message_handler(state=UserState.weight)
 async def send_calories(message, state):
-    if message.text == 'Назад' or message.text == 'Формула расчета':
+    if message.text == 'Назад':
         await message.answer("Возвращаемся в главное меню.",
                              reply_markup=start_kb)
+        await state.finish()
+        return
+    if message.text == 'Формула расчёта':
+        await message.answer(text.formula_info,
+                             reply_markup=main_menu)
         await state.finish()
         return
     try:
