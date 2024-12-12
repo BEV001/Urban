@@ -2,8 +2,8 @@ from aiogram.types import *
 
 start_kb = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton(text='Рассчитать')],
-        [KeyboardButton(text='Информация')],
+        [KeyboardButton(text='Рассчитать'),
+         KeyboardButton(text='Информация')],
         [KeyboardButton(text='Купить')]
     ],
     resize_keyboard=True
