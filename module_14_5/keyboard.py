@@ -1,0 +1,31 @@
+from aiogram.types import *
+
+start_kb = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text='Рассчитать'),
+         KeyboardButton(text='Информация')],
+        [KeyboardButton(text='Купить')],
+        [KeyboardButton(text='Регистрация')]
+    ],
+    resize_keyboard=True
+)
+
+main_menu = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text='Рассчитать норму калорий'),
+         KeyboardButton(text='Формула расчёта')],
+        [KeyboardButton(text='Назад')]
+    ],
+    resize_keyboard=True
+)
+
+
+kb_product = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text='Товар 1', callback_data='product_buying'),
+         InlineKeyboardButton(text='Товар 2', callback_data='product_buying'),
+         InlineKeyboardButton(text='Товар 3', callback_data='product_buying'),
+         InlineKeyboardButton(text='Товар 4', callback_data='product_buying')]
+    ],
+    resize_keyboard=True
+)
