@@ -46,7 +46,7 @@ async def create_user(new_user: CreateUser, db: Annotated[Session, Depends(get_d
             'transaction': 'Successful'
         }
 
-@router.put("/update/{user_id}")
+@router.put("/update")
 async def update_user(user_id: int, update_user: UpdateUser,
                       db: Annotated[Session, Depends(get_db)]):
     user = db.scalars(select(User).where(User.id == user_id)).first()
@@ -68,10 +68,10 @@ async def update_user(user_id: int, update_user: UpdateUser,
 
 
 
-@router.delete("/delete/{user_id}")
+@router.delete("/delete")
 async def delete_user(user_id: int,
                       db: Annotated[Session, Depends(get_db)]):
-    user = db.scalars(select(User).where(User.id == user_id))
+    user = db.scalars(select(User).where(User.id == user_id)).first()
     if user:
         db.execute(delete(User).where(User.id == user_id))
         db.commit()
