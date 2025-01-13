@@ -41,9 +41,11 @@ def games(request):
 
 
 def card(request):
+    title = 'Корзина'
     info = 'Извините, ваша корзина пуста'
     context = {
         'title_page': title_page,
+        'title': title,
         'info': info,
         'button_back': button_back
 
