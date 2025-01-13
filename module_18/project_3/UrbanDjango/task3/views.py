@@ -25,15 +25,15 @@ def platform(request):
 
 def games(request):
     title = 'Игры'
-    list_games = [
-        'Atomic Heart',
-        'Cyberpank 2077',
-        'PayDay 2'
-    ]
+    firts_games = 'Atomic Heart'
+    second_game = 'Cyberpank 2077'
+    third_game = 'PayDay 2'
     context= {
         'title_page':  title_page,
         'title': title,
-        'list_games': list_games,
+        'firts_games': firts_games,
+        'second_game': second_game,
+        'third_game': third_game,
         'button_back': button_back,
         'button_buy': button_buy
     }
