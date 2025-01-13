@@ -7,16 +7,27 @@
 <body>
     <h1>{{ title }}</h1>
     <ul>
-        {% for game in list_games %}
-            <li>
-                <h4>
-                    {{ game }}
-                    <button>
-                      {{ button_buy }}
-                    </button>
-                </h4>
-            </li>
-        {% endfor %}
+        <li>
+            <h4>
+                {{ firts_games }}
+                <button>
+                    {{ button_buy }}
+                </button>
+            </h4>
+        <li>
+            <h4>
+                {{ second_game }}
+                <button>
+                    {{ button_buy }}
+                </button>
+            </h4>
+        <li>
+            <h4>
+                {{ third_game }}
+                <button>
+                    {{ button_buy }}
+                </button>
+            </h4>
     </ul>
     <h2>
         <button>
