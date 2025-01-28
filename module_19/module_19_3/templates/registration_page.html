@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ Title_web }}</title>
+    <style>
+           .error {
+               border: 2px solid red;
+               background-color: #fdd;
+           }
+           .errorlist {
+               color: red;
+               font-size: smaller;
+           }
+       </style>
+</head>
+<body>
+    <h1>{{ page_name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% if form %}
+            {{ form.as_p }}
+        {% else %}
+            <div>
+               <label for="username">Введите логин</label>
+               <input type="text" id="username" name="username" value="{{ initial_data.username }}"
+                      maxlength="30" required class="{% if info.error.username %}error{% endif %}">
+               {% if info.error.username %}
+                   <p class="errorlist">{{ info.error.username }}</p>
+               {% endif %}
+           </div>
+            <br>
+            <div>
+              <label for="password">Введите пароль</label>
+              <input type="password" id="password" name="password" minlength="8" required
+                     class="{% if info.error.repeat_password %}error{% endif %}">
+            </div>
+            <br>
+            <div>
+              <label for="repeat_password">Повторите пароль</label>
+              <input type="password" id="repeat_password" name="repeat_password" minlength="8" required
+                     class="{% if info.error.repeat_password %}error{% endif %}">
+              {% if info.error.repeat_password %}
+                  <p class="errorlist">{{ info.error.repeat_password }}</p>
+              {% endif %}
+            </div>
+            <br>
+            <div>
+              <label for="age">Возраст</label>
+              <input type="number" id="age" name="age" value="{{ initial_data.age }}" maxlength="3"
+                     min="1" max="120" required class="{% if info.error.age %}error{% endif %}">
+              {% if info.error.age %}
+                  <p class="errorlist">{{ info.error.age }}</p>
+              {% endif %}
+           </div>
+            <br>
+        {% endif %}
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+</body>
+</html>
