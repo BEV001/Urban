@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title_page %}
+            Task 4
+        {% endblock %}
+    </title>
+</head>
+<body>
+    {% block pagename %}
+                 <h1></h1>
+    {% endblock %}
+    <nav>
+        {% block menu %}
+           <ul>
+               <li><a href="{% url 'platform' %}">Главная</a></li>
+               <li><a href="{% url 'games' %}">Игры</a></li>
+               <li><a href="{% url 'card' %}">Корзина</a></li>
+               <li><a href="{% url 'news' %}">Новости</a></li>
+           </ul>
+
+        {% endblock %}
+    </nav>
+    {% block content %} {% endblock %}
+</body>
+</html>
