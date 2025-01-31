@@ -1,0 +1,14 @@
+{% extends 'auth_app/base.html' %}
+{% block header %}Добро пожаловать!{% endblock %}
+{% block description %}
+Эта работа посвящена анализу различных методов аутентификации и авторизации.
+{% endblock %}
+{% block content %}
+<nav>
+    <ul>
+        <li><a href="{% url 'session_login' %}">Session-based Authentication</a></li>
+        <li><a href="{% url 'oauth_login' %}">OAuth Authentication</a></li>
+        <li><a href="{% url 'jwt_login' %}">JWT Authentication</a></li>
+    </ul>
+</nav>
+{% endblock %}

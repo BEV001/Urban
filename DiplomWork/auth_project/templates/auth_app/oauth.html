@@ -1,0 +1,13 @@
+{% extends 'auth_app/base.html' %}
+{% load socialaccount %}
+
+{% block title %}OAuth{% endblock %}
+{% block header %}
+    Авторизация{% endblock %}
+{% block description %}
+    Авторизация методом OAuth{% endblock %}
+{% block content %}
+    <a href="{% provider_login_url 'google' %}">Войти через Google</a>
+    <br>
+    <a href="{% url 'home' %}">Главная страница</a>
+{% endblock %}

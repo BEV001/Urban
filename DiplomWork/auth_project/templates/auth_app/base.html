@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Diplom Project{% endblock %}</title>
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'buttons.css' %}">
+<link rel="stylesheet" href="{% static 'error.css' %}">
+<body>
+    <h1>{% block header %}{% endblock %}</h1>
+    <h3>{% block description %}{% endblock %}</h3>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}
+        <p>2024</p>
+        <p>Contact information: Elizaveta Bezumova</p>
+        <p>email: liza_bz@mail.ru</p>
+        {% endblock %}
+    </footer>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% extends 'auth_app/base.html' %}
+
+{% block title %}Secure Page{% endblock %}
+
+{% block header %}Защищенная страница{% endblock %}
+
+{% block content %}
+    <p>Вы успешно авторизованы как пользователь <strong>{{ username }}</strong>.</p>
+    <a href="{% url 'logout_jwt' %}" class="btn">Выйти</a>
+{% endblock %}

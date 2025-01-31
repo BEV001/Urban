@@ -1,0 +1,37 @@
+{% extends 'auth_app/base.html' %}
+
+{% block title %}Session-based login{% endblock %}
+{% block header %}Авторизация{% endblock %}<
+{% block description %}Авторизация методом Session-based Authentication{% endblock %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <!-- Ошибки формы, не привязанные к полю -->
+        {% if form.non_field_errors %}
+            <ul class="errorlist" style="color: red;">
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- Поля формы и их ошибки -->
+        {% for field in form %}
+            <div>
+                {{ field.label_tag }} {{ field }}
+                {% if field.errors %}
+                    <ul class="errorlist" style="color: red;">
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn">Войти</button>
+        <a href="{% url 'session_register' %}" class="btn">Зарегистрироваться</a>
+        <br>
+        <a href="{% url 'home' %}">Главная страница</a>
+    </form>
+
+{% endblock %}

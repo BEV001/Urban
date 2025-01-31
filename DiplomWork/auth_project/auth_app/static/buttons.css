@@ -1,0 +1,19 @@
+.btn {
+    display: inline-block;
+    background-color: #ccc; /* Серый фон */
+    color: #000; /* Черный текст */
+    padding: 5px 10px; /* Внешние отступы */
+    text-align: center; /* Центрирование текста */
+    text-decoration: none; /* Убирает подчеркивание текста, если элемент является ссылкой */
+    border-radius: 5px; /* Скругление углов */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+    outline: none; /* Убирает контур */
+}
+
+.btn:hover {
+    background-color: #8f8f8f;  /* Изменение цвета фона при наведении */
+}
+
+.btn:focus {
+    outline: none; /* Убирает контур при фокусе*/
+}

@@ -1,0 +1,37 @@
+{% extends 'auth_app/base.html' %}
+{% block title %}Session-based login{% endblock %}
+{% block header %}Регистрация{% endblock %}
+{% block description %}Форма регистрации методом JWT{% endblock %}
+{% block content %}
+    <form method="post" action="{% url 'jwt_register' %}">
+        {% csrf_token %}
+
+        <!-- Ошибки формы, не привязанные к полю -->
+        {% if form.non_field_errors %}
+            <ul class="errorlist"cd>
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- Поля формы и их ошибки -->
+        {% for field in form %}
+            <div>
+                {{ field.label_tag }} {{ field }}
+                {% if field.errors %}
+                    <ul class="errorlist">
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <br>
+        <button type="submit" class="btn">Зарегистрироваться</button>
+        <br>
+        <a href="{% url 'home' %}">Главная страница</a>
+    </form>
+{% endblock %}
